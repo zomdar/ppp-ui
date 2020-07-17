@@ -1,0 +1,70 @@
+.main {
+  background-color: #f0eded;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.img-fluid,
+.img-thumbnail {
+  max-width: 100%;
+  height: auto;
+}
+
+.social-media {
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+}
+
+.social-media-item {
+  width: 2em;
+  padding-right: 2px;
+}
+
+.light-blue {
+  color: #00acee;
+}
+
+.forest-green {
+  color: forestgreen;
+}
+
+.black {
+  color: black;
+}
+
+.depthButton {
+  color: #ffffff;
+  display: inline-block;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 14px;
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+  background: #5778f3;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.depthButton:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+  .key {
+    color: yellow;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .social-media {
+    justify-content: left;
+  }
+
+  .main {
+    height: 100vh;
+  }
+}

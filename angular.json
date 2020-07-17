@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "ppp-ui"
+    }
+  },
+  "defaultProject": "ppp-ui",
+  "cli": {
+    "analytics": false
+  }
 }
