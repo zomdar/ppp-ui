@@ -5,10 +5,10 @@
 export const environment = {
   production: false,
   guestToken: {
-    token: ""
+    token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmMDU1ZTRiMDQ0YjZmYWM4MmNjNDdhNCIsImlhdCI6MTU5NDE4NzMzOSwiZXhwIjoxNjAyODI3MzM5fQ.GiWnqikVjsNrzujuH_jV9g7omk6244kysD-Ex2P0KTs"
   },
   dbUrl: {
-    url: ""
+    url: "http://localhost:3000/"
   }
 };
 

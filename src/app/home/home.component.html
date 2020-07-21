@@ -22,32 +22,28 @@
           loan and any other loans by the company.
         </p>
         <div class="d-flex flex-column flex-md-row mb-3">
-          <!-- <form
-              [formGroup]="emailForm"
-              (ngSubmit)="handleSubmit(emailForm.value, emailForm.valid)"
-              novalidate
-            >
-              <div class="form-group">
-                <label class="text-secondary" for="email-message"
-                  >Sign up to recieve a token</label
-                >
-                <input
-                  [ngClass]="{ 'is-invalid': submitted }"
-                  placeholder="email"
-                  formControlName="email"
-                  type="email"
-                  class="form-control email-input"
-                  id="exampleInputEmail1"
-                  aria-describedby="emailHelp"
-                />
-                <small id="emailHelp" class="form-text text-muted"
-                  >Your email is safe with us :D</small
-                >
-              </div>
-              <button class="btn depthButton">
-                Get API <fa-icon [icon]="faKey" class="key"></fa-icon>
-              </button>
-            </form> -->
+          <form
+            [formGroup]="searchForm"
+            (ngSubmit)="handleSubmit(searchForm.value, searchForm.valid)"
+            novalidate
+          >
+            <div class="form-group">
+              <label class="text-secondary" for="search-business"
+                >Search Loan</label
+              >
+              <input
+                placeholder="Business Name"
+                formControlName="businessName"
+                type="business-name"
+                class="form-control business-name"
+                id="businessNameInput"
+                aria-describedby="businessNameInput"
+              />
+            </div>
+            <button class="btn depthButton">
+              Search
+            </button>
+          </form>
         </div>
         <p class="text-muted mb-3">Currently at v1.0.0</p>
         <!-- <div class="social-media">
@@ -80,6 +76,45 @@
             </div>
           </div> -->
       </div>
+    </div>
+    
+    <table class="table table-striped mt-5">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Business Name</th>
+          <th scope="col">State</th>
+          <th scope="col">Loan Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let loan of loans">
+          <td>{{ loan.BusinessName }}</td>
+          <td>{{ loan.State }}</td>
+          <td>{{ loan.LoanRange }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="d-flex justify-content-between p-2">
+      <ngb-pagination
+        [collectionSize]="collectionSize * 10"
+        [(page)]="page"
+        [maxSize]="5"
+        [pageSize]="pageSize"
+        (pageChange)="refreshLoans($event)"
+      >
+      </ngb-pagination>
+
+      <select
+        class="custom-select"
+        style="width: auto;"
+        [(ngModel)]="pageSize"
+        (ngModelChange)="refreshPageSize()"
+      >
+        <option [ngValue]="10">10 per</option>
+        <option [ngValue]="25">25 per</option>
+        <option [ngValue]="50">50 per</option>
+      </select>
     </div>
   </div>
 </main>
