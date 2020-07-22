@@ -20,7 +20,8 @@ export class LoanInfoService {
     return this.http.get(this.url, { headers: headers, params: params });
   }
 
-  getBusiness(id: String): Observable<any> {
-    return this.http.get(this.url + '/' + id, { headers: headers });
+  getBusiness(id: string): Observable<any> {
+    const params = new HttpParams().set('id', id);
+    return this.http.get(this.url + '/business', { headers: headers, params: params });
   }
 }

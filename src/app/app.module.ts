@@ -11,6 +11,7 @@ import { AboutComponent } from './about/about.component';
 import { BusinessInfoComponent } from './business-info/business-info.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SubtractStringPipe } from './pipes/subtract-string.pipe';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HomeComponent,
     AboutComponent,
     BusinessInfoComponent,
+    SubtractStringPipe,
+  ],
+  exports: [
+    SubtractStringPipe
   ],
   imports: [
     BrowserModule,

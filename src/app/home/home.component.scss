@@ -67,6 +67,13 @@
   border-radius: 50px 50px 0px 0px;
 }
 
+.business-table-row {
+  :hover {
+    cursor: pointer;
+    color: #FFF69F;
+  }
+}
+
 @media only screen and (min-width: 768px) {
   /* For desktop: */
   .social-media {
@@ -74,5 +81,6 @@
   }
 
   .main {
+    min-height: 100vh;
   }
 }

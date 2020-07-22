@@ -1,1 +1,58 @@
-<p>business-info works!</p>
+<main class="main py-5">
+  <div *ngIf="businessInfo" class="container">
+    <h1>{{ businessInfo.BusinessName }}</h1>
+    <div class="d-flex pill-row">
+      <span
+        *ngIf="businessInfo.BusinessType !== 'Unanswered'"
+        class="badge badge-pill badge-primary p-2 mr-2"
+        >{{ businessInfo.BusinessType }}</span
+      >
+      <span
+        *ngIf="businessInfo.RaceEthnicity !== 'Unanswered'"
+        class="badge badge-pill badge-light p-2 mr-2"
+        >{{ businessInfo.RaceEthnicity }}</span
+      >
+      <span
+        *ngIf="businessInfo.Gender !== 'Unanswered'"
+        class="badge badge-pill badge-warning p-2 mr-2"
+        >{{ businessInfo.Gender }}</span
+      >
+      <span
+        *ngIf="businessInfo.Veteran !== 'Unanswered'"
+        class="badge badge-pill badge-success p-2"
+        >{{ businessInfo.Veteran }}</span
+      >
+    </div>
+    <div class="d-flex flex-column">
+      <div class="d-flex flex-column loan-amount mb-3">
+        <small class="text-muted">
+          <label for="loan-amount">Loan Amount</label>
+        </small>
+        <p class="display-3">{{ businessInfo.LoanRange | loanEstimate }}</p>
+        <p>
+          <fa-icon
+            class="text-success mr-1"
+            [icon]="faDollarSign"
+          ></fa-icon
+          >{{ businessInfo.Lender }}
+        </p>
+      </div>
+      <div class="d-flex flex-column jobs-retained mb-3">
+        <small class="text-muted">
+          <label for="jobs-retained">Jobs Retained</label>
+        </small>
+        <p class="display-1">{{ businessInfo.JobsRetained }}</p>
+      </div>
+      <div class="d-flex flex-column business-address">
+        <small class="text-muted">
+          <label for="address">Address</label>
+        </small>
+        <p>{{ businessInfo.Address }}</p>
+        <p>
+          {{ businessInfo.City }}, {{ businessInfo.State }}
+          {{ businessInfo.Zip }}
+        </p>
+      </div>
+    </div>
+  </div>
+</main>

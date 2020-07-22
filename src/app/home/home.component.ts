@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoanInfoService } from '../loan-info.service';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -16,7 +17,8 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private loanService: LoanInfoService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private router: Router
   ) {
     this.searchForm = this.formBuilder.group({
       businessName: ["", [Validators.required]],
@@ -47,5 +49,9 @@ export class HomeComponent implements OnInit {
 
   handleSubmit(businessName, valid) {
     console.log(businessName, valid)
+  }
+
+  onClickRow(loan) {
+    this.loanService.getBusiness(loan._id).subscribe(res => this.router.navigate(['/business'], { queryParams: { id: loan._id } }));
   }
 }
